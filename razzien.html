@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routen Cooldown & Waffenhersteller</title>
+    <style>
+        body {
+            background-color: #0d1117;
+            color: #e6edf3;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(90deg, #1f2937, #374151);
+            padding: 25px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .container {
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .section {
+            width: 80%;
+            background: rgba(34, 34, 34, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .item:hover {
+            transform: scale(1.05);
+        }
+
+        .button {
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+            color: white;
+            margin-top: 10px;
+            transition: opacity 0.3s;
+        }
+
+        .button-start { background-color: #1f6feb; }
+        .button-stop { background-color: #dc3545; }
+
+        .button:hover { opacity: 0.8; }
+
+        .back-button {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px 18px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #e6edf3;
+            border-radius: 8px;
+            transition: all 0.3s;
+            cursor: pointer;
+            margin-top: 40px;
+        }
+        .back-button:hover {
+            background: #1f6feb;
+            color: white;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Routen Cooldown & Waffenhersteller</h1>
+    </header>
+    <div class="container">
+        <div class="section">
+            <h2>Alle Routen Cooldowns</h2>
+            <div class="grid" id="routes-container"></div>
+        </div>
+        <div class="section">
+            <h2>Lang- und Kurzwaffen Hersteller</h2>
+            <div class="grid" id="weapons-container"></div>
+        </div>
+        <button class="back-button" onclick="window.history.back()">⬅️ Zurück</button>
+    </div>
+    <script>
+        const routes = ['LSD', 'Weed', 'Kokain', 'Heroin', 'Crack', 'Meth', 'MDMA'];
+        const weapons = {'Kurzwaffen': 'Waffen in Herstellung: 0', 'Langwaffen': 'Waffen in Herstellung: 0'};
+
+        function startCooldown(route) {
+            const cooldownTime = 3 * 24 * 60 * 60 * 1000;
+            localStorage.setItem(`cooldown_${route}`, Date.now() + cooldownTime);
+            updateCooldown(route);
+            updateButton(route, false);
+        }
+
+        function stopCooldown(route) {
+            localStorage.removeItem(`cooldown_${route}`);
+            updateCooldown(route);
+            updateButton(route, true);
+        }
+
+        function updateCooldown(route) {
+            const endTime = localStorage.getItem(`cooldown_${route}`);
+            const countdownElement = document.getElementById(`countdown_${route}`);
+            if (!endTime || Date.now() >= endTime) {
+                countdownElement.innerText = "Kein aktiver Cooldown";
+                return;
+            }
+            const remaining = endTime - Date.now();
+            const hours = Math.floor(remaining / (1000 * 60 * 60));
+            const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+            countdownElement.innerText = `Cooldown: ${hours}h ${minutes}m`;
+            setTimeout(() => updateCooldown(route), 60000);
+        }
+
+        function updateButton(route, isStart) {
+            const button = document.getElementById(`button_${route}`);
+            button.innerText = isStart ? "Cooldown starten" : "Cooldown stoppen";
+            button.classList.toggle('button-start', isStart);
+            button.classList.toggle('button-stop', !isStart);
+            button.onclick = isStart ? () => startCooldown(route) : () => stopCooldown(route);
+        }
+
+        function createRouteElement(route) {
+            return `<div class='item'><h3>${route}</h3><p id='countdown_${route}'>Kein aktiver Cooldown</p>
+                    <button id='button_${route}' class='button button-start' onclick='startCooldown("${route}")'>Cooldown starten</button></div>`;
+        }
+
+        function createWeaponElement(type, weaponCount) {
+            return `<div class='item'><h3>${type}</h3><p>${weaponCount}</p></div>`;
+        }
+
+        document.getElementById('routes-container').innerHTML = routes.map(createRouteElement).join('');
+        document.getElementById('weapons-container').innerHTML = Object.keys(weapons).map(type => createWeaponElement(type, weapons[type])).join('');
+
+        routes.forEach(route => updateCooldown(route));
+    </script>
+</body>
+</html>

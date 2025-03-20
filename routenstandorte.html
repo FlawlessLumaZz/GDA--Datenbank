@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routenstandorte - GDA Datenbank</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <style>
+        /* Allgemeine Stile */
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0d1117, #121826);
+            color: #e6edf3;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(90deg, #1f2937, #374151);
+            padding: 30px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        /* Hauptcontainer */
+        .container {
+            padding: 50px 20px;
+        }
+
+        /* Grid für die Routen */
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        /* Route-Karten */
+        .route-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 150px;
+        }
+
+        .route-card:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0px 6px 15px rgba(31, 111, 235, 0.5);
+        }
+
+        /* Route-Buttons */
+        .route-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            border: none;
+            font-size: 18px;
+            font-weight: 600;
+            color: #e6edf3;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .route-icon {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        /* Farben für verschiedene Buttons */
+        .route-card:nth-child(1) { border: 2px solid #9400d3; } /* LSD */
+        .route-card:nth-child(2) { border: 2px solid #228b22; } /* Weed */
+        .route-card:nth-child(3) { border: 2px solid #add8e6; } /* Kokain */
+        .route-card:nth-child(4) { border: 2px solid #ff0000; } /* Heroin */
+        .route-card:nth-child(5) { border: 2px solid #ff8c00; } /* Crack */
+        .route-card:nth-child(6) { border: 2px solid #800080; } /* Meth */
+        .route-card:nth-child(7) { border: 2px solid #ff1493; } /* MDMA */
+        .route-card:nth-child(8) { border: 2px solid #1e90ff; } /* Kevlar */
+        .route-card:nth-child(9) { border: 2px solid #ffd700; } /* Meth Kisten */
+
+        /* Zurück-Button */
+        .back-button {
+            margin-top: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            padding: 14px 24px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #e6edf3;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background: #1f6feb;
+            color: white;
+            transform: translateY(-3px) scale(1.08);
+            box-shadow: 0px 6px 15px rgba(31, 111, 235, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #161b22;
+            padding: 20px;
+            font-size: 16px;
+            font-weight: 500;
+            margin-top: 50px;
+            box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.3);
+        }
+        footer a {
+            color: #58a6ff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        footer a:hover {
+            color: #1f6feb;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Routenstandorte - GDA Datenbank</h1>
+    </header>
+    <div class="container">
+        <div class="button-container">
+            <div class="route-card"><a href="Routen/lsd.html" class="route-button"><span class="route-icon">💊</span> LSD</a></div>
+            <div class="route-card"><a href="Routen/weed.html" class="route-button"><span class="route-icon">🌿</span> Weed</a></div>
+            <div class="route-card"><a href="Routen/kokain.html" class="route-button"><span class="route-icon">❄️</span> Kokain</a></div>
+            <div class="route-card"><a href="Routen/heroin.html" class="route-button"><span class="route-icon">💉</span> Heroin</a></div>
+            <div class="route-card"><a href="Routen/crack.html" class="route-button"><span class="route-icon">🔥</span> Crack</a></div>
+            <div class="route-card"><a href="Routen/meth.html" class="route-button"><span class="route-icon">⚗️</span> Meth</a></div>
+            <div class="route-card"><a href="Routen/mdma.html" class="route-button"><span class="route-icon">🎉</span> MDMA</a></div>
+            <div class="route-card"><a href="Routen/kevlar.html" class="route-button"><span class="route-icon">🛡️</span> Kevlar</a></div>
+            <div class="route-card"><a href="Routen/meth_kisten.html" class="route-button"><span class="route-icon">📦</span> Meth Kisten</a></div>
+        </div>
+        <button class="back-button" onclick="window.history.back()">⬅️ Zurück</button>
+    </div>
+    <footer>
+        <p>© 2025 GDA Datenbank | Kontakt: <a href="mailto:FIB-11@narcocity.com">FIB-11@narcocity.com</a></p>
+    </footer>
+</body>
+</html>
+

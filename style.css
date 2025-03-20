@@ -1,0 +1,58 @@
+body {
+    color: white;
+    background-image: url('hintergrund.jpg'); /* Bild im gleichen Ordner wie index.html */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+header {
+    background: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    background: #444;
+}
+
+nav ul li {
+    display: inline;
+    padding: 10px 20px;
+}
+
+nav ul li a {
+    color: red;
+    text-decoration: none;
+}
+
+section {
+    padding: 20px;
+    text-align: center;
+}
+
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+#logo {
+    opacity: 0.2; /* Macht das Logo 80% blasser */
+    transition: opacity 0.3s ease; /* Optionale Übergangsanimation, wenn sich die Opazität ändert */
+}
+
+#logo:hover {
+    opacity: 1; /* Wenn man mit der Maus über das Logo fährt, wird es wieder normal */
+}
