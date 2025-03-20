@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDA Datenbank - FIB</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0d1117;
+            color: #e6edf3;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        header {
+            background: linear-gradient(90deg, #1f2937, #374151);
+            padding: 25px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            animation: fadeInDown 1s ease-out;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+            font-weight: bold;
+        }
+        .nav-bar {
+            background-color: #161b22;
+            padding: 15px 0;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+            animation: fadeInDown 1s ease-out 0.5s;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+        .nav-links a {
+            color: #58a6ff;
+            text-decoration: none;
+            padding: 12px 18px;
+            font-size: 18px;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        .nav-links a:hover {
+            background: #1f6feb;
+            color: white;
+            transform: scale(1.1);
+        }
+        .content {
+            padding: 60px 20px;
+            animation: fadeIn 1.5s ease-out 1s;
+        }
+        .content h2 {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .content p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        .logo-container {
+            margin-top: 30px;
+        }
+        .logo-container img {
+            max-width: 50%;
+            height: auto;
+            opacity: 0.9;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        .logo-container img:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        footer {
+            background-color: #161b22;
+            padding: 20px;
+            font-size: 16px;
+            font-weight: 500;
+            margin-top: 40px;
+            box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out 1.5s;
+        }
+        footer a {
+            color: #58a6ff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        footer a:hover {
+            color: #1f6feb;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>GDA Datenbank - Offizielle FIB Webseite</h1>
+    </header>
+    <div class="nav-bar">
+        <div class="nav-links">
+            <a href="startseite.html">Startseite</a>
+            <a href="fraktionen.html">Fraktionen</a>
+            <a href="razzien.html">Razzien & Cooldowns</a>
+            <a href="routenstandorte.html">Routenstandorte</a>
+        </div>
+    </div>
+    <div class="content">
+        <h2>Willkommen in der offiziellen GDA Datenbank</h2>
+        <p>Hier findest du alle relevanten Informationen zu Fraktionen, Razzien und mehr.</p>
+        <div class="logo-container">
+            <img src="grafik.png" alt="Erstellt von FIB-11">
+        </div>
+    </div>
+    <footer>
+        <p>© 2025 GDA Datenbank | Kontakt: <a href="mailto:FIB-11@narcocity.com">FIB-11@narcocity.com</a></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraktionen - GDA Datenbank</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0d1117, #161b22);
+            color: #e6edf3;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        header {
+            background: rgba(31, 41, 55, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            animation: fadeInDown 1s ease-out;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        .nav-bar {
+            background: rgba(22, 27, 34, 0.9);
+            padding: 15px 0;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+            animation: fadeInDown 1s ease-out 0.5s;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        .nav-links a {
+            color: #58a6ff;
+            text-decoration: none;
+            padding: 12px 18px;
+            font-size: 18px;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        .nav-links a:hover {
+            background: #1f6feb;
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0px 0px 10px rgba(31, 118, 255, 0.7);
+        }
+        .container {
+            padding: 60px 20px;
+            animation: fadeIn 1.5s ease-out 1s;
+        }
+        .category {
+            background: rgba(31, 41, 55, 0.8);
+            padding: 20px;
+            margin: 20px auto;
+            width: 60%;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+        .category:hover {
+            transform: scale(1.05);
+        }
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .buttons a {
+            text-decoration: none;
+            padding: 10px 15px;
+            background: #444;
+            color: white;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        .buttons a:hover {
+            background: #1f6feb;
+            transform: scale(1.1);
+        }
+        footer {
+            background: rgba(22, 27, 34, 0.9);
+            padding: 25px;
+            font-size: 16px;
+            font-weight: 500;
+            margin-top: 60px;
+            box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out 1.5s;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0d1117, #161b22);
+            color: #e6edf3;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        .logo-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            background: url('hintergrund.jpg') center/cover no-repeat;
+        }
+        .logo-container::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Dunkle Überlagerung für bessere Lesbarkeit */
+        }
+        header {
+            background: rgba(31, 41, 55, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            animation: fadeInDown 1s ease-out;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        .container {
+            padding: 60px 20px;
+            animation: fadeIn 1.5s ease-out 1s;
+        }
+        .category {
+            background: rgba(31, 41, 55, 0.8);
+            padding: 20px;
+            margin: 20px auto;
+            width: 60%;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+        .category:hover {
+            transform: scale(1.05);
+        }
+        .buttons a {
+            text-decoration: none;
+            padding: 10px 15px;
+            background: #444;
+            color: white;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        .buttons a:hover {
+            background: #1f6feb;
+            transform: scale(1.1);
+        }
+        footer {
+            background: rgba(22, 27, 34, 0.9);
+            padding: 25px;
+            font-size: 16px;
+            font-weight: 500;
+            margin-top: 60px;
+            box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out 1.5s;
+        }  
+        
+    </style>
+</head>
+<body>
+    <h1>Fraktionen</h1>
+    <div class="logo-container">
+        <img src="hintergrund." alt="">
+    </div>
+    <div class="container">
+        <div class="category">
+            <h2>Mafien</h2>
+            <div class="buttons">
+                <a href="black_aces.html">Black Aces</a>
+                <a href="la_sangre_azul.html">La Sangre Azul</a>
+                <a href="narcos_cartel.html">Narcos Cartel</a>
+                <a href="madrazo_cartel.html">Madrazo Cartel</a>
+                <a href="la_trinacria.html">La Trinacria</a>
+                <a href="cayo_cartel.html">Cayo Cartel</a>
+                <a href="falkenberg.html">Falkenberg</a>
+                <a href="sicario_cartel.html">Sicario Cartel</a>
+                <a href="mahalle.html">Mahalle</a>
+                <a href="la_sombra.html">La Sombra</a>
+            </div>
+        </div>
+        <div class="category">
+            <h2>Gangs</h2>
+            <div class="buttons">
+                <a href="91_thugs.html">91 Thugs</a>
+                <a href="bbg.html">BBG</a>
+                <a href="maghreb_united.html">Maghreb United</a>
+                <a href="trust_no_one.html">Trust no One</a>
+                <a href="rising_sun.html">Rising Sun</a>
+                <a href="panthers.html">Panthers</a>
+            </div>
+        </div>
+        <div class="category">
+            <h2>Clubs / Biker / Bauern</h2>
+            <div class="buttons">
+                <a href="lost_mc.html">Lost MC</a>
+                <a href="malvados_mc.html">Malvados MC</a>
+                <a href="iron_sons.html">Iron Sons</a>
+                <a href="blackout_crew.html">Blackout Crew</a>
+                <a href="ravens_of_doom.html">Ravens of Doom</a>
+                <a href="grapeseed_rednecks.html">Grapeseed Rednecks</a>
+            </div>
+        </div>
+        <div class="category">
+            <h2>Andere</h2>
+            <div class="buttons">
+                <a href="nobody_club.html">Nobody Club</a>
+                <a href="epsilon.html">Epsilon</a>
+                <a href="altruisten.html">Altruisten</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
